@@ -1,0 +1,45 @@
+<%= form_for @rent, :html => { :multipart => true } do |f| %>
+  <% if @rent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rent.errors.count, "error") %> prohibited this rent from being saved:</h2>
+
+      <ul>
+      <% @rent.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br>
+    <%= f.file_field :photo %>
+  </div>
+  <div class="field">
+    <%= f.label :guests %><br>
+    <%= f.number_field :guests %>
+  </div>
+  <div class="field">
+    <%= f.label :bedroom %><br>
+    <%= f.number_field :bedroom %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :wifi %><br>
+    <%= f.check_box :wifi %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
